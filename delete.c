@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "mp3.h"
 
-extern node_t *head, *tail;
+extern node_t *head, *tail, *head2, *tail2;
 
 void delete(char *name)
 {
@@ -28,3 +28,18 @@ void delete(char *name)
     }
 }
 
+void removeList(){
+    int i = 0;
+    node_t *temp;
+
+    while(head != NULL){
+        temp = head;
+        head = head->next;
+        free(temp->artist);
+        free(temp->title);
+        free(temp);
+
+        ++i;
+    }
+    printf("free %d MP3 records...\n", i);
+}

@@ -39,31 +39,58 @@ char title[SIZE];
 char artist[SIZE];
 char removeArtist[SIZE];
 int titleLen, artistLen;
+int time, year;
+int x;
 
-        if(scanf("%d%c",&i, slct) <= 0){
+        if(scanf("%d%c",&x, slct) <= 0){
             printf("Error: Please enter a Number ");
             exit(1);
         }else{
-            switch (i)
+            switch (x)
             {
                 case 1:
                         printf("Enter in a Song Title: \n");
                         if(fgets(title,SIZE, stdin) != NULL){
                             titleLen = strlen(title);
-                            title[i - 1] = '\0';
+                            title[titleLen - 1] = '\0';
+                        }else
+                        {
+                            printf("Wrong title: ");
+                            exit(-1);
                         }
+                        
                         printf("Enter in the Song's Artist Name; \n");
                         if(fgets(artist,SIZE,stdin) != NULL){
                             artistLen = strlen(artist);
-                            artist[l]
-
+                            artist[artistLen-1] = '\0'; 
+                        }else{
+                            printf("Wrong Artist: ");
+                            exit(-1);
                         }
-        default:
-            break;
+                        printf("Enter in the Amount of Time: ");
+                        scanf("%d%s", &time, stdin);
+                        printf("Enter in the Year ");
+                        scanf("%d%s", &year, stdin);
+                        break;
+                case 2: if(head == NULL){
+                    printf("List is empty \n");
+                    } else 
+                    print();
+                    break;
+                case 3:
+                        if(fgets(removeArtist, SIZE, stdin) != NULL){
+                            artistLen = strlen(removeArtist);
+                            removeArtist[artistLen - 1] = '\0';
+                            delete(removeArtist);
+                        } else
+                        {
+                            exit(-1);
+                        }break;
+                case 4: // Remove the List
+                    removeList();
+        default: printf("Error: ");
         }
     }
-
-
 
 // Add the correct amount of buffer to character buffers
 

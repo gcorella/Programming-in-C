@@ -2,7 +2,7 @@
 
 #include "mp3.h"
 extern node_t *head, *tail;
-
+// Num is the year
 void insert(char *title, char *artist, int num, int time){
     node_t *mp3, *temp;
 
@@ -12,7 +12,7 @@ void insert(char *title, char *artist, int num, int time){
     mp3->title = (char *) malloc(strlen(title) + 1);
     strcpy(mp3->title, title);
 
-    mp3->data = num;
+    mp3->data = num; // Year
     mp3->time = time;
     mp3->next = NULL;
     mp3->prev = NULL;
